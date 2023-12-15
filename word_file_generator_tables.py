@@ -7,7 +7,7 @@ def replace_text_in_word_file(template_file, new_file, replacements):
     # Function to replace text in a run while keeping the original format
     def replace_text_in_run(run, old_text, new_text):
         if old_text in run.text:
-            text = run.text.replace(old_text, new_text)
+            text = run.text.replace(old_text, str(new_text))
             run.clear()
             run.add_text(text)
 
@@ -18,7 +18,7 @@ def replace_text_in_word_file(template_file, new_file, replacements):
                 for paragraph in cell.paragraphs:
                     for run in paragraph.runs:
                         for old_text, new_text in replacements.items():
-                            replace_text_in_run(run, old_text, new_text)
+                            replace_text_in_run(run, old_text, str(new_text))
 
     # Save the new content in a new file
     doc.save(new_file)
@@ -28,8 +28,8 @@ if __name__ == '__main__':
     # original_template_file = 'template_edit.docx'
     template_file = 'template_edit.docx'
     replacements = {'{certificado}': 'new_word', '{emisión}': 'new_word', '{póliza}': 'new_word', 
-                    '{contratante}': 'SUDAMERIS BANK', '{ruc}': 'new_word', '{nombre}': 'FRANCISCO RUIZ', '{nacimiento}': 'new_word',
-                    '{documento}': '4338313', '{nacimiento}': 'new_word', '{domicilio}': 'new_word', 
+                    '{contratante}': 'SUDAMERIS BANK', '{ruc}': 'new_word', '{nombre}': 'FRANCISCO RUIZ', 
+                    '{documento}': '4338313', '{nacimiento}': 'new_word', '{domicilio}': 'new_word', '{localidad}': 'Paraguay',
                     '{amortización}': 'new_word', '{desde}': '11/12/2023', '{hasta}': '23/12/2023', 
                     '{días}': 'new_word', '{fallecimiento}': 'new_word', '{incapacidad}': 'new_word', 
                     '{prima}': 'new_word', '{impuesto}': 'new_word', '{premio}': 'new_word', 
