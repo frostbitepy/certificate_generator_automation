@@ -1,0 +1,8 @@
+# folders
+venv/
+output/
+
+# files
+*.xls
+*.xlsx
+*.pdf
