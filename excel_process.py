@@ -28,7 +28,7 @@ def process_excel_row(row):
     row['hasta'] = row['hasta'].strftime('%d/%m/%Y')
 
     # Format the numeric columns
-    numeric_columns = ['fallecimiento', 'incapacidad','prima', 'impuesto', 'premio', 'financiamiento', 'interés', 'costo', 'final']
+    numeric_columns = ['documento','fallecimiento', 'incapacidad','prima', 'impuesto', 'premio', 'financiamiento', 'interés', 'costo', 'final']
     for column in numeric_columns:
         row[column] = '{:,}'.format(row[column]).replace(',', '.')    
 
@@ -52,3 +52,6 @@ def process_excel_row(row):
 
     # Delete the Word document
     delete_docx_file(new_file)
+
+    # Return the path of the generated PDF
+    return new_file.replace('.docx', '.pdf')
