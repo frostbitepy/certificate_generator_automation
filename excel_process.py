@@ -1,6 +1,19 @@
+import os
 from datetime import datetime
 from docx2pdf import convert
 from word_file_generator_tables import replace_text_in_word_file
+
+
+def delete_docx_file(file_path):
+    try:
+        # Check if the file exists before attempting to delete
+        if os.path.exists(file_path):
+            os.remove(file_path)
+            print(f"The file {file_path} has been deleted.")
+        else:
+            print(f"The file {file_path} does not exist.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 def process_excel_row(row):
 
@@ -32,7 +45,10 @@ def process_excel_row(row):
     new_file = f'output/new_file_{row["nombre"]}.docx'
 
     # Call the function
-    replace_text_in_word_file('template_edit.docx', new_file, replacements)
+    replace_text_in_word_file('templates/template_edit.docx', new_file, replacements)
 
     # Convert the Word document to PDF
     convert(new_file, new_file.replace('.docx', '.pdf'))
+
+    # Delete the Word document
+    delete_docx_file(new_file)

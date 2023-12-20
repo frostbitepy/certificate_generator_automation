@@ -26,7 +26,7 @@ def replace_text_in_word_file(template_file, new_file, replacements):
 
 if __name__ == '__main__':
     # original_template_file = 'template_edit.docx'
-    template_file = 'template_edit.docx'
+    template_file = 'templates/template_edit.docx'
     replacements = {'{certificado}': 'new_word', '{emisión}': 'new_word', '{póliza}': 'new_word', 
                     '{contratante}': 'SUDAMERIS BANK', '{ruc}': 'new_word', '{nombre}': 'FRANCISCO RUIZ', 
                     '{documento}': '4338313', '{nacimiento}': 'new_word', '{domicilio}': 'new_word', '{localidad}': 'Paraguay',

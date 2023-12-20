@@ -24,9 +24,9 @@ def replace_text_in_word_file(template_file, new_file, old_text, new_text):
 
 
 if __name__ == '__main__':
-    original_template_file = 'template_edit.docx'
-    template_file = 'template_edit_test.docx'
-    new_file = 'template_edit_test.docx'
+    original_template_file = 'templates/template_edit.docx'
+    template_file = 'templates/template_edit_test.docx'
+    new_file = 'templates/template_edit_test.docx'
     old_text_list = ['{certificado}', '{emisión}','{póliza}', '{contratante}', '{ruc}', '{nacimiento}',
                      '{documento}', '{nacimiento}', '{domicilio}', '{amortización}', '{desde}',
                      '{hasta}', '{días}', '{fallecimiento}', '{incapacidad}', '{prima}',
